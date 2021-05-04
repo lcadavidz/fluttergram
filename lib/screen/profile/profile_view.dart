@@ -76,20 +76,6 @@ class _ProfileState extends State<ProfileScreen> {
                   child: Stack(
                     fit: StackFit.expand,
                     children: [
-                      if (user.photoURL != null)
-                        SizedBox(
-                          height: getProportionateScreenHeight(128),
-                          width: getProportionateScreenWidth(128),
-                          child: DecoratedBox(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                image: NetworkImage(user.photoURL),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                        ),
                       if (user?.photoURL == null)
                         SizedBox(
                           height: getProportionateScreenHeight(128),
@@ -103,6 +89,20 @@ class _ProfileState extends State<ProfileScreen> {
                               Icons.photo_rounded,
                               color: textColor,
                               size: 48,
+                            ),
+                          ),
+                        ),
+                      if (user.photoURL != null)
+                        SizedBox(
+                          height: getProportionateScreenHeight(128),
+                          width: getProportionateScreenWidth(128),
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                image: NetworkImage(user.photoURL),
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         ),

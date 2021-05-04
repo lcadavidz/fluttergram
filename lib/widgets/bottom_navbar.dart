@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttergram/screen/chat/chat_view.dart';
 import 'package:fluttergram/screen/home/home_view.dart';
 import 'package:fluttergram/screen/profile/profile_view.dart';
 import 'package:fluttergram/ui_shared/images.dart';
@@ -70,7 +71,7 @@ class BottomNavBar extends StatelessWidget {
                     ? primaryColor
                     : inActiveIconColor,
               ),
-              onPressed: () {},
+              onPressed: () => Navigator.pushNamed(context, ChatScreen.route),
             ),
             IconButton(
               icon: ImageFactory.svg(

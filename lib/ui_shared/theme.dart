@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:io' show Platform;
 import './constants.dart';
+import './size_config.dart';
 
 ThemeData theme() {
   return ThemeData(
@@ -59,5 +60,71 @@ AppBarTheme appBarTheme() {
         fontSize: 18,
       ),
     ),
+  );
+}
+
+DecoratedBox chatDecoratedBox(String image) {
+  return DecoratedBox(
+    decoration: BoxDecoration(
+      shape: BoxShape.circle,
+      image: DecorationImage(
+        image: AssetImage(image),
+        fit: BoxFit.cover,
+      ),
+      border: Border.all(color: Colors.white, width: 2),
+    ),
+  );
+}
+
+Positioned chatPositioned() {
+  return Positioned(
+    right: 4,
+    bottom: 0.5,
+    child: SizedBox(
+      height: 18,
+      width: 18,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: Colors.blue,
+          border: Border.all(color: Colors.white, width: 4),
+        ),
+      ),
+    ),
+  );
+}
+
+Positioned chatGroupPositioned(String image, double x, double y) {
+  return Positioned(
+    right: x,
+    top: y,
+    child: SizedBox(
+      height: 50,
+      width: 50,
+      child: chatDecoratedBox(image),
+    ),
+  );
+}
+
+Column chatInfo(String name, String state) {
+  return Column(
+    children: [
+      Text(
+        name,
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: getProportionateScreenWidth(20),
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      Text(
+        state,
+        style: TextStyle(
+          color: Colors.blueGrey,
+          fontSize: getProportionateScreenWidth(12),
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ],
   );
 }
